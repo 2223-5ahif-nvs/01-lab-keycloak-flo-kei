@@ -26,9 +26,8 @@
   address = ":443"
 
 [certificatesResolvers]
-  [certificatesResolvers.default.acme]
+  [certificatesResolvers.myresolver.acme]
     email = "z06zuupqy@relay.firefox.com" # change this email in production
-    storage = "/etc/traefik/ACME/acme.json"
-    [certificatesResolvers.default.acme.tlsChallenge]
-
+    storage = "/letsencrypt/acme.json"
+    [certificatesResolvers.myresolver.acme.tlsChallenge]
 
