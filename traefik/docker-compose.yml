@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  traefik:
+    container_name: traefik_keycloak
+    image: traefik:v2.9
+    ports:
+      - 80:80
+      - 8080:8080
+    volumes:
+      - ./traefik.toml:/etc/traefik/traefik.toml
+      - ./dynamic.yml:/etc/traefik/dynamic.yml
+      - /var/run/docker.sock:/var/run/docker.sock:ro
