@@ -16,6 +16,10 @@ RUN keytool -genkeypair -storepass password -storetype PKCS12 -keyalg RSA -keysi
 # change these values to point to a running postgres instance
 ENV KC_DB_URL=jdbc:postgresql://postgres:5432/postgres
 ENV KC_DB_USERNAME=postgres
-ENV KC_DB_PASSWORD=8hLcobGYOPuQTq65xnyV
+ENV KC_HOSTNAME_STRICT=false
+ENV KC_HTTP_ENABLED=true
+ENV KC_HOSTNAME_STRICT_HTTPS=false
+ENV KC_PROXY=edge
+
 #ENV KC_HOSTNAME=localhost
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
