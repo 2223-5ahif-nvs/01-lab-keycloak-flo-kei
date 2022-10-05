@@ -51,3 +51,41 @@ If you want to learn more about building native executables, please consult http
 
 - OpenID Connect ([guide](https://quarkus.io/guides/security-openid-connect)): Verify Bearer access tokens and authenticate users with Authorization Code Flow
 - Keycloak Authorization ([guide](https://quarkus.io/guides/security-keycloak-authorization)): Policy enforcer using Keycloak-managed permissions to control access to protected resources
+
+## Additional notes
+
+https://auth.flokei.at/realms/master/broker/oidc/endpoint
+
+https://auth.flokei.at/realms/master/.well-known/openid-configuration
+
+https://auth.flokei.at/realms/quarkus/protocol/openid-connect/token
+
+
+export access_token=$(\
+curl --insecure -X POST https://auth.flokei.at/realms/quarkus/protocol/openid-connect/token \
+--user backend-service:secret \
+-H 'content-type: application/x-www-form-urlencoded' \
+-d 'username=alice&password=alice&grant_type=password' | jq --raw-output '.access_token' \
+)
+
+https://quarkus.io/guides/security-keycloak-authorization#testing-the-application
+
+curl -v -X GET \
+http://localhost:8080/api/users/me \
+-H "Authorization: Bearer "$access_token
+
+localhost:8080/q/dev
+http://localhost:8080/q/dev/io.quarkus.quarkus-oidc/provider
+
+localhost:8080/api/users/me
+localhost:8080/api/admin
+
+username:
+alice
+
+password:
+alice
+
+quarkus realm file:
+https://raw.githubusercontent.com/quarkusio/quarkus-quickstarts/main/security-keycloak-authorization-quickstart/config/quarkus-realm.json
+
