@@ -1,2 +1,4 @@
 keycloak/keycloak-postgres.env
+keycloak/db-data
+keycloak/sql
 traefik/letsencrypt
