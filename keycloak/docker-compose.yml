@@ -25,7 +25,9 @@ services:
   keycloak:
     container_name: keycloak
     image: ghcr.io/flo-kei/prebuilt_keycloak
-    command: start --optimized 
+    command: 
+     - start --optimized 
+     - "-Dkeycloak.import=/opt/jboss/keycloak/imports/quarkus-realm.json"
     depends_on:
       - "postgres"
     env_file:
