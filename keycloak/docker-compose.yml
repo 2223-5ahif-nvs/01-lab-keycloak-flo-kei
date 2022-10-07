@@ -35,6 +35,8 @@ services:
       #- "127.0.0.1:8787:8787" # debug port
     networks:
       - keycloak
+    volumes:
+      - ./imports:/opt/jboss/keycloak/imports
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.whoami.rule=Host(`auth.flokei.at`)"
