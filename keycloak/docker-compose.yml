@@ -24,7 +24,7 @@ services:
 
   keycloak:
     container_name: keycloak
-    image: prebuilt_keycloak:latest
+    image: ghcr.io/flo-kei/prebuilt_keycloak
     command: start --optimized 
     depends_on:
       - "postgres"
