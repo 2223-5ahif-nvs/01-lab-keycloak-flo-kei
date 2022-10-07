@@ -89,3 +89,11 @@ alice
 quarkus realm file:
 https://raw.githubusercontent.com/quarkusio/quarkus-quickstarts/main/security-keycloak-authorization-quickstart/config/quarkus-realm.json
 
+loginpage:
+https://lists.jboss.org/pipermail/keycloak-user/2016-July/007045.html
+https://auth.flokei.at/realms/quarkus/protocol/openid-connect/auth?client_id=backend-service&response_mode=fragment&response_type=code&login=true&redirect_uri=localhost:8080/api/users/me
+
+maybe this fixes the problem:
+https://stackoverflow.com/questions/53538100/how-to-get-client-secret-via-keycloak-api
+
+couldn't find the option in the webinterface
